@@ -293,8 +293,8 @@ export default function Layout({ children }) {
           display: "flex",
           flexDirection: "column",
           minHeight: "calc(100vh - 64px)",
-          background: "linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)",
-          backgroundAttachment: "fixed",
+          backgroundColor: "background.default",
+          transition: "background-color 0.2s ease-in-out",
         }}
       >
         <Box sx={{ flexGrow: 1, mb: 4 }}>{children}</Box>
@@ -307,11 +307,12 @@ export default function Layout({ children }) {
             textAlign: "center",
             borderTop: 1,
             borderColor: "divider",
-            background: "rgba(255, 255, 255, 0.8)",
+            backgroundColor: "background.paper",
             backdropFilter: "blur(10px)",
             borderRadius: 2,
             mx: 2,
             mb: 2,
+            transition: "background-color 0.2s ease-in-out",
           }}
         >
           <Box
