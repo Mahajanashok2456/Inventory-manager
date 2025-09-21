@@ -10,6 +10,19 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
 ]
 
+# Add WhiteNoise to middleware for static files
+MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Add WhiteNoise
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
 # Database configuration for Supabase PostgreSQL
 DATABASES = {
     'default': dj_database_url.config(
@@ -19,9 +32,12 @@ DATABASES = {
     )
 }
 
-# Static files for Vercel
+# Static files for Vercel - simplified approach
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# WhiteNoise configuration
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # CORS settings for Vercel
 CORS_ALLOWED_ORIGINS = [
