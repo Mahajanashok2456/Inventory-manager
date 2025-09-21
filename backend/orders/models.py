@@ -75,8 +75,9 @@ class OrderItem(models.Model):
             
         super().save(*args, **kwargs)
         
-        # Update product quantity
+        # Update product quantity and sold quantity
         self.product.quantity -= self.quantity
+        self.product.sold_quantity += self.quantity
         self.product.save()
         
         # Update order totals
