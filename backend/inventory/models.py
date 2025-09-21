@@ -36,6 +36,11 @@ class Product(models.Model):
         default=0,
         validators=[MinValueValidator(0)]
     )
+    sold_quantity = models.IntegerField(
+        default=0,
+        validators=[MinValueValidator(0)],
+        help_text="Total quantity sold"
+    )
     low_stock_threshold = models.IntegerField(default=10)
     description = models.TextField(blank=True, null=True)
     sku = models.CharField(max_length=100, unique=True, blank=True, null=True)  # Stock Keeping Unit
@@ -48,6 +53,11 @@ class Product(models.Model):
 
     def __str__(self):
         return f"{self.name} ({self.category.name})"
+
+    @property
+    def available_quantity(self):
+        """Calculate available quantity (total - sold)"""
+        return max(0, self.quantity - self.sold_quantity)
 
     @property
     def profit_per_unit(self):
@@ -65,10 +75,17 @@ class Product(models.Model):
 
     @property
     def is_low_stock(self):
-        """Check if product is below low stock threshold"""
-        return self.quantity <= self.low_stock_threshold
+        """Check if available quantity is below low stock threshold"""
+        return self.available_quantity <= self.low_stock_threshold
 
     @property
     def total_value(self):
-        """Calculate total inventory value (cost price * quantity)"""
-        return self.cost_price * self.quantity
+        """Calculate total inventory value (cost price * available quantity)"""
+        return self.cost_price * self.available_quantity
+
+    @property
+    def total_sold_value(self):
+        """Calculate total value of sold items (selling price * sold quantity)"""
+        if self.selling_price:
+            return self.selling_price * self.sold_quantity
+        return Decimal('0.00')

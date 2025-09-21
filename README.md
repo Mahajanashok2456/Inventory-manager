@@ -12,6 +12,7 @@
 **Mahajan's Inventory Manager** is a full-stack web application designed to streamline inventory management, order processing, and business analytics. Built for modern businesses that need accurate, real-time inventory tracking with powerful analytics capabilities.
 
 ### 🚀 Key Benefits
+
 - **Real-time inventory tracking** with automatic stock updates
 - **Comprehensive order management** with profit calculations
 - **Interactive analytics dashboard** with visual insights
@@ -21,12 +22,14 @@
 ## 🛠️ Tech Stack
 
 ### Backend
+
 - **Framework:** Django 5.2.6 + Django REST Framework 3.16.1
 - **Database:** SQLite (development) / MySQL (production)
 - **API:** RESTful API with comprehensive endpoints
 - **CORS:** django-cors-headers for frontend integration
 
 ### Frontend
+
 - **Framework:** React 19.1.1 with modern hooks
 - **UI Library:** Material-UI (MUI) v7.3.2 with emotion styling
 - **Routing:** React Router DOM v7.9.1
@@ -35,6 +38,7 @@
 - **Data Grid:** MUI X Data Grid v8.11.3
 
 ### Development Tools
+
 - **Testing:** React Testing Library + Jest
 - **Build Tool:** Create React App
 - **Version Control:** Git
@@ -44,6 +48,7 @@
 ### 🎛️ Core Functionality
 
 #### **Inventory Management**
+
 - ✅ Product categories with descriptions
 - ✅ Product CRUD operations with validation
 - ✅ Stock quantity tracking with low-stock alerts
@@ -52,6 +57,7 @@
 - ✅ Real-time stock updates during sales
 
 #### **Order Processing**
+
 - ✅ Complete order management system
 - ✅ Multi-item orders with automatic calculations
 - ✅ Real-time profit tracking per order
@@ -59,6 +65,7 @@
 - ✅ Automatic inventory deduction
 
 #### **Analytics & Reporting**
+
 - ✅ Interactive dashboard with key metrics
 - ✅ Sales trend analysis with charts
 - ✅ Profit tracking and visualization
@@ -66,6 +73,7 @@
 - ✅ Category-wise performance metrics
 
 #### **User Interface**
+
 - ✅ Modern, responsive Material-UI design
 - ✅ Dark/light theme support
 - ✅ Mobile-optimized interface
@@ -73,6 +81,7 @@
 - ✅ Intuitive navigation and workflows
 
 ### 🔮 Planned Features (v2.0)
+
 - 🔒 User authentication and role management
 - 📊 Advanced reporting with PDF exports
 - 📱 Progressive Web App (PWA) support
@@ -127,6 +136,7 @@ mahajan-inventory-manager/
 ## 🚀 Quick Start
 
 ### Prerequisites
+
 - **Python 3.8+** with pip
 - **Node.js 14+** with npm
 - **Git** for version control
@@ -134,12 +144,14 @@ mahajan-inventory-manager/
 ### 🔧 Backend Setup
 
 1. **Clone and navigate to backend:**
+
 ```bash
 git clone https://github.com/Mahajanashok2456/Inventory-manager.git
 cd Inventory-manager/backend
 ```
 
 2. **Create virtual environment (recommended):**
+
 ```bash
 python -m venv venv
 # Windows
@@ -149,38 +161,46 @@ source venv/bin/activate
 ```
 
 3. **Install dependencies:**
+
 ```bash
 pip install -r requirements.txt
 ```
 
 4. **Setup database:**
+
 ```bash
 python manage.py migrate
 python manage.py createsuperuser  # Optional: Create admin user
 ```
 
 5. **Start development server:**
+
 ```bash
 python manage.py runserver
 ```
+
 🚀 Backend running at: `http://127.0.0.1:8000/`
 
 ### ⚛️ Frontend Setup
 
 1. **Navigate to frontend:**
+
 ```bash
 cd ../frontend
 ```
 
 2. **Install dependencies:**
+
 ```bash
 npm install
 ```
 
 3. **Start development server:**
+
 ```bash
 npm start
 ```
+
 🚀 Frontend running at: `http://localhost:3000/`
 
 ### 🌐 API Endpoints
@@ -196,18 +216,21 @@ The backend provides comprehensive REST API endpoints:
 ## 💼 Usage Guide
 
 ### 1. **Initial Setup**
+
 1. Start both backend and frontend servers
 2. Access the application at `http://localhost:3000`
 3. Navigate to Inventory > Categories to create product categories
 4. Add products with cost and selling prices
 
 ### 2. **Daily Operations**
+
 1. **Recording Sales:** Use Orders section to create new orders
 2. **Inventory Check:** Monitor stock levels in Inventory section
 3. **Analytics:** Review performance metrics in Dashboard
 4. **Stock Management:** Update quantities and prices as needed
 
 ### 3. **Key Workflows**
+
 - **New Product:** Category → Product → Set Prices → Add Stock
 - **Process Sale:** Orders → New Order → Add Items → Submit
 - **Monitor Performance:** Dashboard → Review Metrics → Analyze Trends
@@ -215,12 +238,14 @@ The backend provides comprehensive REST API endpoints:
 ## 🎯 Success Metrics
 
 ### Business Impact
+
 - ✅ **100% Digital Tracking** - Eliminate manual inventory books
 - ✅ **Real-time Accuracy** - Live stock and profit calculations
 - ✅ **Time Savings** - 50%+ reduction in inventory management time
 - ✅ **Data-Driven Decisions** - Analytics for better business insights
 
 ### Technical Achievements
+
 - ✅ **Responsive Design** - Works on all devices
 - ✅ **Modern Stack** - Latest Django and React versions
 - ✅ **API-First** - RESTful backend architecture

@@ -62,18 +62,31 @@ def inventory_summary(request):
     total_products = products.count()
     total_categories = Category.objects.count()
     low_stock_products = [p for p in products if p.is_low_stock]
-    total_value = sum(product.total_value for product in products)
+    
+    # Calculate inventory values
+    total_inventory_value = sum(product.total_value for product in products)
+    total_sold_value = sum(product.total_sold_value for product in products)
+    
+    # Calculate quantities
+    total_quantity = sum(product.quantity for product in products)
+    total_sold_quantity = sum(product.sold_quantity for product in products)
+    total_available_quantity = sum(product.available_quantity for product in products)
     
     return Response({
         'total_products': total_products,
         'total_categories': total_categories,
         'low_stock_count': len(low_stock_products),
-        'total_inventory_value': total_value,
+        'total_inventory_value': total_inventory_value,
+        'total_sold_value': total_sold_value,
+        'total_quantity': total_quantity,
+        'total_sold_quantity': total_sold_quantity,
+        'total_available_quantity': total_available_quantity,
+        'inventory_turnover_percentage': (total_sold_quantity / total_quantity * 100) if total_quantity > 0 else 0,
         'low_stock_products': [
             {
                 'id': p.id,
                 'name': p.name,
-                'quantity': p.quantity,
+                'available_quantity': p.available_quantity,
                 'threshold': p.low_stock_threshold
             } for p in low_stock_products
         ]

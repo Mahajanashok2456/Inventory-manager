@@ -422,17 +422,6 @@ export default function Dashboard() {
             >
               Refresh
             </Button>
-            <Button
-              variant="contained"
-              startIcon={<AddIcon />}
-              sx={{
-                borderRadius: 2,
-                background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-                boxShadow: "0 4px 12px rgba(102, 126, 234, 0.4)",
-              }}
-            >
-              Quick Actions
-            </Button>
           </Box>
         </Box>
 

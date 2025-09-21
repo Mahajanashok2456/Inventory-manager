@@ -18,13 +18,15 @@ class ProductListSerializer(serializers.ModelSerializer):
     profit_margin = serializers.DecimalField(max_digits=5, decimal_places=2, read_only=True)
     is_low_stock = serializers.BooleanField(read_only=True)
     total_value = serializers.DecimalField(max_digits=15, decimal_places=2, read_only=True)
+    available_quantity = serializers.IntegerField(read_only=True)
+    total_sold_value = serializers.DecimalField(max_digits=15, decimal_places=2, read_only=True)
     
     class Meta:
         model = Product
         fields = [
             'id', 'name', 'category', 'category_name', 'cost_price', 'selling_price',
-            'quantity', 'low_stock_threshold', 'description', 'sku',
-            'profit_per_unit', 'profit_margin', 'is_low_stock', 'total_value',
+            'quantity', 'sold_quantity', 'available_quantity', 'low_stock_threshold', 'description', 'sku',
+            'profit_per_unit', 'profit_margin', 'is_low_stock', 'total_value', 'total_sold_value',
             'created_at', 'updated_at'
         ]
 
@@ -34,6 +36,8 @@ class ProductDetailSerializer(serializers.ModelSerializer):
     profit_margin = serializers.DecimalField(max_digits=5, decimal_places=2, read_only=True)
     is_low_stock = serializers.BooleanField(read_only=True)
     total_value = serializers.DecimalField(max_digits=15, decimal_places=2, read_only=True)
+    available_quantity = serializers.IntegerField(read_only=True)
+    total_sold_value = serializers.DecimalField(max_digits=15, decimal_places=2, read_only=True)
     
     class Meta:
         model = Product
@@ -45,7 +49,7 @@ class ProductCreateSerializer(serializers.ModelSerializer):
         model = Product
         fields = [
             'name', 'category', 'cost_price', 'selling_price',
-            'quantity', 'low_stock_threshold', 'description', 'sku'
+            'quantity', 'sold_quantity', 'low_stock_threshold', 'description', 'sku'
         ]
 
     def validate_selling_price(self, value):
