@@ -1,0 +1,28 @@
+# Vercel ignore file - exclude these from deployment
+
+.venv/
+.env.production
+.vscode/
+**pycache**/
+_.pyc
+_.pyo
+\*.pyd
+.git/
+.gitignore
+
+# Frontend (deployed separately)
+
+frontend/
+node_modules/
+
+# Development files
+
+.env
+.env.example
+\*.log
+.DS_Store
+
+# Database files
+
+_.sqlite3
+_.db
